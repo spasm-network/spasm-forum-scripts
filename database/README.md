@@ -65,7 +65,9 @@ If you want to restore the database from the backup,
 execute the following command from a user or an admin:
 
 ```
-psql -h localhost -U dbuser spasm_database < spasm_database_20230101.sql
+dropdb -h localhost -U dbuser -p 5432 spasm_database
+createdb -h localhost -U dbuser -p 5432 spasm_database
+psql -h localhost -U dbuser -p 5432 -d spasm_database < spasm_database_20230101.sql
 ```
 
 *Note: change `spasm_database_20230101` to the name of your database backup file, and don't forget to change default db name `spasm_database`, db username `dbuser`, and db port `5432` if you've used custom values.*
@@ -80,38 +82,44 @@ Connect to the database
 
 ```
 psql -h localhost -d spasm_database -U dbuser -p 5432
+\c spasm_database
 ```
 
-Delete the post via signature
+Delete the post via db_key
 
 ```
-DELETE FROM actions WHERE SIGNATURE='';
+DELETE FROM spasm_events WHERE db_key = '100';
 ```
 
-Add the signature between ' '.
+Add the db key between ' '.
 
-The signature of the post can be copied from its URL.
+The db key of an event can be found via API
 
 For example, to delete the following post:
 
 ```
-https://degenrocket.space/news/0xce6ca8c19ad124bb16f7dbf6ebbc059789a750818965b660147bf079f942bf5d26935a0420ffa4d0b477e4f5fa4c00844aae65ae06999a9e74fed71f464bcd811b
+https://degenrocket.space/news/spasmid0118ca8a15f44d6f26b31088fe4cf24db99ceb331381454df8886fbed42cab3ca8
 ```
 
-You have to execute the following command:
+You have to find its db key using API:
 
 ```
-DELETE FROM actions WHERE SIGNATURE='0xce6ca8c19ad124bb16f7dbf6ebbc059789a750818965b660147bf079f942bf5d26935a0420ffa4d0b477e4f5fa4c00844aae65ae06999a9e74fed71f464bcd811b';
+https://degenrocket.space/api/events/spasmid0118ca8a15f44d6f26b31088fe4cf24db99ceb331381454df8886fbed42cab3ca8
 ```
 
-To delete all posts from a particular address, you have to use a similar command, but change `SIGNATURE` to `SIGNER`:
+```
+{
+  ...,
+  db: {
+    key: 48319,
+    ...
+  }
+}
+```
+
+And then execute the following command:
 
 ```
-DELETE FROM actions WHERE SIGNER='';
+DELETE FROM spasm_events WHERE db_key = 48319;
 ```
 
-For example, to delete all posts from address `0xd268cca7c12b38834568ddf4d48b333090612313` execute:
-
-```
-DELETE FROM actions WHERE SIGNER='0xd268cca7c12b38834568ddf4d48b333090612313';
-```
