@@ -1,11 +1,11 @@
-## DegenRocket Scripts
+## Spasm Forum Scripts
 
-This repository contains scripts and guides to automate the initial server setup and simplify the management of a DegenRocket server.
+This repository contains scripts and guides to automate the initial server setup and simplify the management of a Spasm Forum server.
 
 Download all scripts from github into scripts folder:
 
 ```shell
-git clone https://github.com/degenrocket/degenrocket-scripts.git ~/scripts/
+git clone https://github.com/spasm-network/spasm-forum-scripts.git ~/scripts/
 ```
 
 #### Initial server setup

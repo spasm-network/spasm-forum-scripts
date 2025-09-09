@@ -2,7 +2,7 @@
 
 ### Intro
 
-This guide is intended for beginners who wish to run an instance of web3 online forum DegenRocket.
+This guide is intended for beginners who wish to run an instance of web3 online forum Spasm Forum.
 
 You don't have to follow this guide if you're an experienced sysadmin or you already have a hardened server. Although, it's recommended to run an instance on a separate server for security reasons.
 
@@ -282,7 +282,7 @@ You can change these paths in the `scripts/.env` file.
 root (manages initial server setup)
 ├── .ssh
 │   └── authorized_keys (for the first connection only)
-└── scripts (degenrocket-scripts.git)
+└── scripts (spasm-forum-scripts.git)
     └── .env (this .env will be copied to user and admin)
 
 home
@@ -290,20 +290,20 @@ home
 │   ├── .ssh
 │   │   └── authorized_keys (for regular connections)
 │   ├── apps
-│   │   └── degenrocket
-│   │       ├── frontend (degenrocket-web.git)
+│   │   └── spasm-forum
+│   │       ├── frontend (spasm-forum-web.git)
 │   │       │   └── .env
-│   │       └── backend (degenrocket-server.git)
+│   │       └── backend (spasm-forum-server.git)
 │   │           └── .env
 │   ├── backups
 │   │   └── database (copied from admin during db backup)
-│   └── scripts (degenrocket-scripts.git)
+│   └── scripts (spasm-forum-scripts.git)
 │       └── .env (copied from root during initial server setup)
 │
 └── admin (sudo, ssl, manages OS)
     ├── backups
     │   └── database (generated during database backups)
-    └── scripts (degenrocket-scripts.git)
+    └── scripts (spasm-forum-scripts.git)
         └── .env (copied from root during initial server setup)
 ```
 
@@ -328,7 +328,7 @@ mkdir ~/scripts
 
 ```shell
 # Download all scripts from github into scripts folder
-git clone https://github.com/degenrocket/degenrocket-scripts.git ~/scripts/
+git clone https://github.com/spasm-network/spasm-forum-scripts.git ~/scripts/
 ```
 
 Look through all downloaded scripts and compare them to the source
@@ -542,13 +542,13 @@ The following script will:
 Adjust `backend/.env` if you've changed default database user or password
 
 ```shell
-nano ~/apps/degenrocket/backend/.env
+nano ~/apps/spasm-forum/backend/.env
 ```
 
 Set app name, social media links and other options in `frontend/.env`
 
 ```shell
-nano ~/apps/degenrocket/frontend/.env
+nano ~/apps/spasm-forum/frontend/.env
 ```
 
 Make sure `API_URL` is set properly in `frontend/.env`
@@ -581,7 +581,7 @@ There are different ways how to upload files to the server.
 Open the folder on your **home machine** that contains logos, e.g.:
 
 ```shell
-cd ~/Documents/degenrocket/mylogos
+cd ~/Documents/spasm-forum/mylogos
 ```
 
 Create an SFTP connection with your server
@@ -599,7 +599,7 @@ of the command after the destination address like when using SSH.*
 After logging into your server, choose the destination folder for logos
 
 ```shell
-cd apps/degenrocket/frontend/public
+cd apps/spasm-forum/frontend/public
 ```
 
 Verify that you're in the right folder with `pwd`
@@ -611,7 +611,7 @@ pwd
 The output should look something like this:
 
 ```
-Remote working directory: /home/user/apps/degenrocket/frontend/public
+Remote working directory: /home/user/apps/spasm-forum/frontend/public
 ```
 
 Copy all files from home `mylogos` folder to server `public` folder
@@ -666,13 +666,13 @@ su - user
 Build and start the backend
 
 ```shell
-npm run --prefix ~/apps/degenrocket/backend prod
+npm run --prefix ~/apps/spasm-forum/backend prod
 ```
 
 Build and start the frontend
 
 ```shell
-npm run --prefix ~/apps/degenrocket/frontend prod
+npm run --prefix ~/apps/spasm-forum/frontend prod
 ```
 
 Check running apps
@@ -761,7 +761,7 @@ to the same password as in the step above.
 - Open the environment file.
 
 ```shell
-vim ~/apps/degenrocket/backend/.env
+vim ~/apps/spasm-forum/backend/.env
 ```
 
 - Change a value of the `POSTGRES_PASSWORD` variable, example:
@@ -780,8 +780,8 @@ POSTGRES_PASSWORD="my new password"
 
 ```shell
 pm2 list
-pm2 delete dr-prod-back
-npm run --prefix ~/apps/degenrocket/backend prod
+pm2 delete sf-prod-back
+npm run --prefix ~/apps/spasm-forum/backend prod
 pm2 save
 ```
 
