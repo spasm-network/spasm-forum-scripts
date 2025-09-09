@@ -96,7 +96,8 @@ apt-get -y install curl
 
 echo "Installing NVM..."
 # su - "${USER}" bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash"
-su - "${USER}" bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash"
+# su - "${USER}" bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash"
+su - "${USER}" bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash"
 
 # Install NVM
 # 'bash -c' command runs in a non-interactive shell, so it doesn't
