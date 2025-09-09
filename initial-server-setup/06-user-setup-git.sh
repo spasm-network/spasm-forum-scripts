@@ -58,8 +58,8 @@ echo "Starting the script..."
 bash -c "mkdir -p ${FRONTEND_FOLDER} && mkdir -p ${BACKEND_FOLDER}"
 
 # Download git
-bash -c "git clone https://github.com/degenrocket/degenrocket-server.git ${BACKEND_FOLDER}"
-bash -c "git clone https://github.com/degenrocket/degenrocket-web.git ${FRONTEND_FOLDER}"
+bash -c "git clone https://github.com/spasm-network/spasm-forum-server.git ${BACKEND_FOLDER}"
+bash -c "git clone https://github.com/spasm-network/spasm-forum-web.git ${FRONTEND_FOLDER}"
 
 # Install dependencies
 bash -c ". ~/.nvm/nvm.sh && cd ${BACKEND_FOLDER} && npm install"
