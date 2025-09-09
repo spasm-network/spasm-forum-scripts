@@ -21,7 +21,7 @@ test -f "${ENV_FILE}" && source "${ENV_FILE}"
 # Assign a default value if it is unset or empty
 USER="${USER_NAME:-user}"
 ADMIN="${ADMIN_NAME:-admin}"
-APP_NAME="${APP_NAME:-degenrocket}"
+APP_NAME="${APP_NAME:-spasm-forum}"
 ALL_APPS_FOLDER="${ALL_APPS_FOLDER:-apps}"
 POSTGRES_USER="${POSTGRES_USER:-dbuser}"
 POSTGRES_DATABASE="${POSTGRES_DATABASE:-spasm_database}"

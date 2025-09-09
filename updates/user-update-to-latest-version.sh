@@ -18,10 +18,10 @@ ENV_FILE="${THIS_SCRIPT_DIR}/../.env"
 test -f "${ENV_FILE}" && source "${ENV_FILE}"
 
 # Assign a default value if it is unset or empty
-BACKEND_DIR="${BACKEND_DIR:-$HOME/apps/degenrocket/backend}"
-FRONTEND_DIR="${FRONTEND_DIR:-$HOME/apps/degenrocket/frontend}"
-BACKEND_PM2_INSTANCE_NAME="${BACKEND_PM2_INSTANCE_NAME:-dr-prod-back}"
-FRONTEND_PM2_INSTANCE_NAME="${FRONTEND_PM2_INSTANCE_NAME:-dr-prod-front}"
+BACKEND_DIR="${BACKEND_DIR:-$HOME/apps/spasm-forum/backend}"
+FRONTEND_DIR="${FRONTEND_DIR:-$HOME/apps/spasm-forum/frontend}"
+BACKEND_PM2_INSTANCE_NAME="${BACKEND_PM2_INSTANCE_NAME:-sf-prod-back}"
+FRONTEND_PM2_INSTANCE_NAME="${FRONTEND_PM2_INSTANCE_NAME:-sf-prod-front}"
 
 echo "Variables:"
 echo "BACKEND_DIR: ${BACKEND_DIR}"
@@ -210,6 +210,6 @@ echo "Done"
 
 # If you will change environment variables, then
 # don't forget to run npm build after that, e.g.:
-# $ cd ~/apps/degenrocket/frontend && npm run build
+# $ cd ~/apps/spasm-forum/frontend && npm run build
 # and also restart all pm2 app instances, e.g.:
 # $ pm2 restart all
