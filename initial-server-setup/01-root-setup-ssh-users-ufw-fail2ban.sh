@@ -202,7 +202,26 @@ echo "SSH password authentication disabled"
 
 # Clean extra config /etc/ssh/sshd_config.d/50-cloud-init.conf
 # so it doesn't include "PasswordAuthentication yes"
-echo "" > /etc/ssh/sshd_config.d/50-cloud-init.conf
+# echo "" > /etc/ssh/sshd_config.d/50-cloud-init.conf
+
+# Clean extra configs because they can overwrite variables
+# Define the backup directory
+EXTRA_SSH_CONFIGS_BACKUP_DIR="/etc/ssh/sshd_config.d.bak"
+# Create the backup directory if it doesn't exist
+mkdir -p "$EXTRA_SSH_CONFIGS_BACKUP_DIR"
+# Backup all extra configs
+for config_file in /etc/ssh/sshd_config.d/*; do
+  if [ -f "$config_file" ]; then
+    cp "$config_file" "$EXTRA_SSH_CONFIGS_BACKUP_DIR/"
+  fi
+done
+# Clean all extra configs
+for config_file in /etc/ssh/sshd_config.d/*; do
+  if [ -f "$config_file" ]; then
+    echo "" > "$config_file"
+  fi
+done
+# You can check final ssh config with 'sudo sshd -T'
 
 # service sshd restart
 systemctl restart ssh
