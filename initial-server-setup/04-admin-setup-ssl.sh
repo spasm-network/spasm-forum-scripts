@@ -207,6 +207,7 @@ apt-get -y install snapd
 # remove apt certbot
 apt-get remove certbot -y
 snap install --classic certbot
+echo "If you got an error that certbot cannot be installed, try running this script again."
 
 # '-f' option removes the existing destination file if it exists and
 # creates the symbolic link regardless, which prevent errors like:
