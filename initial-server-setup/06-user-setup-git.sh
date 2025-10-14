@@ -62,8 +62,8 @@ bash -c "git clone https://github.com/spasm-network/spasm-forum-server.git ${BAC
 bash -c "git clone https://github.com/spasm-network/spasm-forum-web.git ${FRONTEND_FOLDER}"
 
 # Install dependencies
-bash -c ". ~/.nvm/nvm.sh && cd ${BACKEND_FOLDER} && npm install"
-bash -c ". ~/.nvm/nvm.sh && cd ${FRONTEND_FOLDER} && npm install"
+bash -c ". ~/.nvm/nvm.sh && cd ${BACKEND_FOLDER} && npm ci"
+bash -c ". ~/.nvm/nvm.sh && cd ${FRONTEND_FOLDER} && npm ci"
 # Note: Nuxt package can prompt you to send them anonymous data:
 # "Are you interested in participating?
 # You can type 'n' and press 'enter' to continue the script.
