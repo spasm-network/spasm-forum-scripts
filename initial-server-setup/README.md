@@ -382,9 +382,12 @@ The script above will:
 * Create an admin with privileges
 * Set a password for an admin (default: admin)
 * Copy authorized SSH keys from root to a user
+* Back up SSH config to `/etc/ssh/sshd_config.bak`
+* Back up extra SSH configs to `/etc/ssh/sshd_config.d.bak`
 * Change SSH port (default new port: 2222)
 * Disable SSH root login
 * Disable SSH password authentication
+* Disable extra SSH configs in `/etc/ssh/sshd_config.d`
 * Configure UFW firewall to allow SSH, ftp, http, https
 * Install and enable fail2ban
 
