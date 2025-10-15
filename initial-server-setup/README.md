@@ -502,6 +502,17 @@ sudo apt dist-upgrade
 sudo bash ~/scripts/initial-server-setup/04-admin-setup-ssl.sh
 ```
 
+You might also encounter an error that certbot cannot be installed:
+
+```
+error: cannot install "certbot": Post "https://api.snapcraft.io/v2/snaps/refresh": context canceled
+```
+
+In this case, simply run the script again, it should fix the issue.
+
+```shell
+sudo bash ~/scripts/initial-server-setup/04-admin-setup-ssl.sh
+```
 ---
 
 ### User setup
