@@ -118,6 +118,9 @@ su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm alias default 20"
 # Update npm
 su - "${USER}" bash -c ". ~/.nvm/nvm.sh && npm install -g npm@latest"
 
+# Disable npm pre/post-install scripts
+su - "${USER}" bash -c "npm config set ignore-scripts true"
+
 ################################
 # Nginx
 echo "Installing nginx..."
