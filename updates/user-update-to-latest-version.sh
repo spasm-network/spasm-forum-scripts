@@ -142,7 +142,7 @@ function npm_operations() {
     echo "Starting npm operations for ${path}"
 
     # Install npm packages if packages have been changed
-    npm install --prefix "${path}"
+    npm ci --prefix "${path}"
 
     # Run 'build' script if it exists in package.json
     local json=$(cat "${path}"/package.json)

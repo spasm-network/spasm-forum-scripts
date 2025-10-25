@@ -45,7 +45,7 @@ function revert_to_previous_version() {
         git -C "${path}" checkout previous-version
 
         # Install npm packages if packages have been changed
-        npm install --prefix "${path}"
+        npm ci --prefix "${path}"
 
         # Run 'build' script if it exists in package.json
         local json=$(cat "${path}"/package.json)
@@ -64,7 +64,7 @@ function revert_to_previous_version() {
         echo "git checkout <ID_OF_COMMIT_OF_PREVIOUS_VERSION>"
         echo "You can find a required ID with 'git log --oneline'"
         echo "Don't forget to do that for both backend and frontend,"
-        echo "and run 'npm install' in both folders,"
+        echo "and run 'npm ci' in both folders,"
         echo "and build the frontend with 'npm run build'"
         echo "and restart pm2 with 'pm2 restart all'"
     fi
