@@ -80,7 +80,8 @@ function git_operations() {
     git -C "$path" reset --hard HEAD && git -C "$path" checkout master
 
     # Delete any local git changes to master and download a new version
-    git -C "$path" reset --hard HEAD && git -C "$path" pull
+    # git -C "$path" reset --hard HEAD && git -C "$path" pull
+    git -C "$path" reset --hard origin/master && git -C "$path" pull
 }
 
 git_operations "${BACKEND_DIR}"
