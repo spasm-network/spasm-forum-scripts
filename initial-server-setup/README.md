@@ -174,12 +174,14 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 ### DNS
 
 Configure DNS at the dashboard of your VPS provider.
-Add at least 3 records for this script to work without errors:
+Add at least 5 records for this script to work without errors:
 
 ```
 # your_domain.com
 # www.your_domain.com
 # staging.your_domain.com
+# forum.your_domain.com
+# media.your_domain.com
 ```
 
 Choose Type 'A' for IPv4 addresses.
