@@ -227,7 +227,7 @@ if [[ "$SITE_TLD" =~ .*\..*\..* ]]; then
     certbot --noninteractive --agree-tos --nginx --cert-name ${SITE_TLD} -d ${SITE_TLD} --register-unsafely-without-email
 else
     # with default subdomains (www and staging)
-    certbot --noninteractive --agree-tos --nginx --cert-name ${SITE_TLD} -d ${SITE_TLD} -d www.${SITE_TLD} -d staging.${SITE_TLD} --register-unsafely-without-email
+    certbot --noninteractive --agree-tos --nginx --cert-name ${SITE_TLD} -d ${SITE_TLD} -d www.${SITE_TLD} -d staging.${SITE_TLD} -d media.${SITE_TLD} -d forum.${SITE_TLD} --register-unsafely-without-email
 fi
 
 # Test auto-renewal

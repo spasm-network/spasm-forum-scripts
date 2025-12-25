@@ -19,3 +19,29 @@ Example:
 ```
 bash ~/scripts/updates/user-revert-to-previous-version.sh
 ```
+
+### Troubleshooting
+
+##### Unable to create index.lock git file
+
+If you get the following errors:
+
+```
+fatal: Unable to create '~/apps/spasm-forum/frontend/.git/index.lock': File exists.
+fatal: Unable to create '~/apps/spasm-forum/backend/.git/index.lock': File exists.
+```
+
+Then try deleting the lock files manually:
+
+```
+rm ~/apps/spasm-forum/frontend/.git/index.lock
+rm ~/apps/spasm-forum/backend/.git/index.lock
+```
+
+And then execute the update script again:
+
+```
+bash ~/scripts/updates/user-update-to-latest-version.sh
+```
+
+
