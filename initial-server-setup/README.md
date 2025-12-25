@@ -199,6 +199,8 @@ Choose TTL '3h' or leave it as default.
 # Type:A, Name:degenrocket.space, IPv4:20.21.03.01, TTL:3h
 # Type:A, Name:www.degenrocket.space, IPv4:20.21.03.01, TTL:3h
 # Type:A, Name:staging.degenrocket.space, IPv4:20.21.03.01, TTL:3h
+# Type:A, Name:forum.degenrocket.space, IPv4:20.21.03.01, TTL:3h
+# Type:A, Name:media.degenrocket.space, IPv4:20.21.03.01, TTL:3h
 ```
 
 *Note: if you cannot set your domain name (e.g. 'degenrocket.space')
