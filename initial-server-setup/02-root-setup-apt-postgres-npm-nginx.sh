@@ -91,37 +91,6 @@ systemctl restart postgresql
 # psql -h localhost -d spasm_database -U dbuser -p 5432
 
 ################################
-# Download NVM install script
-apt-get -y install curl
-
-echo "Installing NVM..."
-# su - "${USER}" bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash"
-# su - "${USER}" bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash"
-su - "${USER}" bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash"
-
-# Install NVM
-# 'bash -c' command runs in a non-interactive shell, so it doesn't
-# load the environment variables specified in '~/.bashrc' or in
-# '~/.bash_profile', where 'nvm' is usually sourced.
-# The following command first sources the 'nvm.sh' script to
-# set up the 'nvm' command and then executes 'nvm install 18'.
-echo "Installing node..."
-# su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm install 18"
-su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm install 20"
-
-# Install Node
-# su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm use 18"
-su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm use 20"
-# su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm alias default 18"
-su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm alias default 20"
-
-# Update npm
-su - "${USER}" bash -c ". ~/.nvm/nvm.sh && npm install -g npm@latest"
-
-# Disable npm pre/post-install scripts
-su - "${USER}" bash -c "npm config set ignore-scripts true"
-
-################################
 # Nginx
 echo "Installing nginx..."
 apt -y install nginx
@@ -173,4 +142,39 @@ echo "Nginx config has been changed at: /etc/nginx/sites-available/default"
 nginx -t
 
 service nginx restart
+echo "Nginx has been restarted"
+
+################################
+# Cron
+echo "Installing cron..."
+apt-get -y install cron
+systemctl start cron
+systemctl enable cron
+
+################################
+# Download NVM install script
+apt-get -y install curl
+
+echo "Installing NVM..."
+su - "${USER}" bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash"
+
+# Install NVM
+# 'bash -c' command runs in a non-interactive shell, so it doesn't
+# load the environment variables specified in '~/.bashrc' or in
+# '~/.bash_profile', where 'nvm' is usually sourced.
+# The following command first sources the 'nvm.sh' script to
+# set up the 'nvm' command and then executes 'nvm install 20'.
+echo "Installing node..."
+su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm install 20"
+
+# Install Node
+su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm use 20"
+su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm alias default 20"
+
+# Update npm
+su - "${USER}" bash -c ". ~/.nvm/nvm.sh && npm install -g npm@latest"
+
+# Disable npm pre/post-install scripts
+su - "${USER}" bash -c "npm config set ignore-scripts true"
+
 echo "Success. End of script."
