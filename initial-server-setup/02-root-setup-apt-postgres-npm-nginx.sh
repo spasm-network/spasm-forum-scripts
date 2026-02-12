@@ -175,6 +175,6 @@ su - "${USER}" bash -c ". ~/.nvm/nvm.sh && nvm alias default 20"
 su - "${USER}" bash -c ". ~/.nvm/nvm.sh && npm install -g npm@latest"
 
 # Disable npm pre/post-install scripts
-su - "${USER}" bash -c "npm config set ignore-scripts true"
+su - "${USER}" bash -c ". ~/.nvm/nvm.sh && npm config set ignore-scripts true"
 
 echo "Success. End of script."
