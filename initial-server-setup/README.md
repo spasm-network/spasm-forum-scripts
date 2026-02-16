@@ -8,7 +8,7 @@ You don't have to follow this guide if you're an experienced sysadmin or you alr
 
 The large portion of the setup is done via custom scripts, so you mostly need to copy-paste commands into a terminal and wait for the installation process to finish with minimum interactions like typing your domain name.
 
-This instruction has been tested on **Ubuntu 24.04.2** and **Debian 12 (bookworm)**.
+This instruction has been tested on **Debian 13 (trixie)**, **Debian 12 (bookworm)**, and **Ubuntu 24.04.2**.
 
 Troubleshooting: if you encounter any errors, please create a new issue or send a message to `degenrocket` on [Session](https://getsession.org).
 
@@ -35,11 +35,11 @@ We recommend using different hosting providers for diversification reasons.
 That said, some instances are using privacy-focused domain name registrar
 and hosting provider Njalla, established by one of The Pirate Bay founders.
 
-Configurations:
+##### Requirements
 
-- Ubuntu 24.04
-
-- You can choose as low as **1 core CPU** and **1 GB RAM**.
+OS: Debian 13, Debian 12, or Ubuntu 24.04
+Minimum: **1 core CPU** and **1.5 GB RAM**.
+Recommended: **2 core CPU** and **2 GB RAM**.
 
 ##### Add your SSH .pub to your VPS provider
 
@@ -576,6 +576,8 @@ Some examples:
 ```shell
 # Production with SSL certificate (https) and Nginx
 API_URL=https://degenrocket.space
+# Production with SSL for subdomain
+API_URL=https://forum.spasm.network
 # Testing in VM with Nginx (port forwarding)
 API_URL=http://192.168.122.200
 # Testing locally without Nginx
@@ -599,7 +601,7 @@ There are different ways how to upload files to the server.
 Open the folder on your **home machine** that contains logos, e.g.:
 
 ```shell
-cd ~/Documents/spasm-forum/mylogos
+cd ~/Documents/spasm-forum/my-logos
 ```
 
 Create an SFTP connection with your server

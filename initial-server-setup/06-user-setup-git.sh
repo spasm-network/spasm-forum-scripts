@@ -79,6 +79,7 @@ cp ${FRONTEND_FOLDER}/.env.example ${FRONTEND_FOLDER}/.env
 ENV_PROMPT_TEXT="
 We need to change API_URL in frontend/.env
 Please enter your domain name (e.g., degenrocket.space) below.
+If you used subdomain, then include it (e.g., forum.spasm.network).
 Do not type 'www' or 'https'.
 Alternatively, enter IP address (e.g., 192.168.122.200) if you test in VM.
 Note: leave empty (just press enter) if you test locally via localhost.

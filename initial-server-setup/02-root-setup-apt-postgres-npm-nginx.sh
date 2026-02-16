@@ -61,6 +61,24 @@ elif [ "$NAME" = "Debian GNU/Linux" ] && [ "$VERSION_ID" = "12" ]; then
     DEBIAN_FRONTEND=noninteractive /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     apt-get update
     apt-get -y install postgresql-16
+elif [ "$NAME" = "Debian GNU/Linux" ] && [ "$VERSION_ID" = "13" ]; then
+    echo "Installing PostgreSQL 16 on Debian 13"
+    apt-get update
+    apt-get install -y postgresql-common
+    # /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+    # noninteractive allows script execution without user's input
+    DEBIAN_FRONTEND=noninteractive /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+    apt-get update
+    apt-get -y install postgresql-16
+elif [ "$NAME" = "Debian GNU/Linux" ] && [ "$VERSION_ID" = "14" ]; then
+    echo "Installing PostgreSQL 16 on Debian 14"
+    apt-get update
+    apt-get install -y postgresql-common
+    # /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+    # noninteractive allows script execution without user's input
+    DEBIAN_FRONTEND=noninteractive /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+    apt-get update
+    apt-get -y install postgresql-16
 else
     echo "Unsupported distribution: $NAME $VERSION_ID"
     echo "Trying to install PostgreSQL 16..."
