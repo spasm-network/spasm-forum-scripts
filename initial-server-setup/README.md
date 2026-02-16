@@ -38,7 +38,9 @@ and hosting provider Njalla, established by one of The Pirate Bay founders.
 ##### Requirements
 
 OS: Debian 13, Debian 12, or Ubuntu 24.04
+
 Minimum: **1 core CPU** and **1.5 GB RAM**.
+
 Recommended: **2 core CPU** and **2 GB RAM**.
 
 ##### Add your SSH .pub to your VPS provider
@@ -320,7 +322,7 @@ You should be logged in as `root`, so you can run setup scripts.
 Install git.
 
 ```shell
-apt-get install git
+apt-get -y install git
 ```
 
 Download all scripts manually into `/root/scripts/` or using `git clone`.

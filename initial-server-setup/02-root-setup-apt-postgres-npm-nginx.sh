@@ -43,6 +43,10 @@ echo "Installing postgresql..."
 
 # Source the os-release file
 source /etc/os-release
+NAME="${NAME:-unknown}"
+VERSION_ID="${VERSION_ID:-unknown}"
+VERSION_CODENAME="${VERSION_CODENAME:-unknown}"
+
 # Print distribution information
 echo "Distribution: $NAME"
 echo "Version: $VERSION_ID"
@@ -70,7 +74,7 @@ elif [ "$NAME" = "Debian GNU/Linux" ] && [ "$VERSION_ID" = "13" ]; then
     DEBIAN_FRONTEND=noninteractive /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     apt-get update
     apt-get -y install postgresql-16
-elif [ "$NAME" = "Debian GNU/Linux" ] && [ "$VERSION_ID" = "14" ]; then
+elif [ "$NAME" = "Debian GNU/Linux" ] && [ "$VERSION_CODENAME" = "forky" ]; then
     echo "Installing PostgreSQL 16 on Debian 14"
     apt-get update
     apt-get install -y postgresql-common
