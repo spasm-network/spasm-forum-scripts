@@ -1,3 +1,12 @@
+# Deprecated
+
+This repo is superseded by [spasm-ansible](https://github.com/spasm-network/spasm-ansible) and [spasm-docker](https://github.com/spasm-network/spasm-docker).
+
+- Launch Spasm under three minutes with [docker/podman](https://github.com/spasm-network/spasm-docker).
+- Or set up a new server from scratch with [one script](https://github.com/spasm-network/spasm-ansible).
+
+---
+
 ## Spasm Forum Scripts
 
 This repository contains scripts and guides to automate the initial server setup and simplify the management of a Spasm Forum server.
