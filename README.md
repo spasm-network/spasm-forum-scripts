@@ -9,6 +9,8 @@ This repo is superseded by [spasm-ansible](https://github.com/spasm-network/spas
 
 ## Spasm Forum Scripts
 
+Mirrors: [Forgejo](https://git.spasm.network/spasm-network/spasm-forum-scripts) [Codeberg](https://codeberg.org/spasm-network/spasm-forum-scripts) [Github](https://github.com/spasm-network/spasm-forum-scripts)
+
 This repository contains scripts and guides to automate the initial server setup and simplify the management of a Spasm Forum server.
 
 Download all scripts from github into scripts folder:
